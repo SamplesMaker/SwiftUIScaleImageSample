@@ -9,8 +9,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var scale: CGFloat = 1.0
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Slider(value: $scale, in: 1.0 ... 10.0, step: 0.1)
+                .padding(.bottom, 100)
+            
+            Image(systemName: "cloud.rain")
+                .scaleEffect(scale)
+        }
     }
 }
 
